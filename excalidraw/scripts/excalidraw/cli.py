@@ -5,6 +5,7 @@
     python -m excalidraw new --sample er -o er.excalidraw.md
     python -m excalidraw new --sample er-groups -o er-groups.excalidraw.md
     python -m excalidraw new --sample chen -o chen.excalidraw.md
+    python -m excalidraw new --sample --format excalidraw -o out.excalidraw
     python -m excalidraw new --spec spec.json -o out.excalidraw.md
     python -m excalidraw get --path x.excalidraw.md
     python -m excalidraw validate --path x.excalidraw.md
@@ -204,6 +205,7 @@ def cmd_new(args) -> int:
     spec = _load_spec(args)
     diagram = diagram_from_spec(spec)
     obj = builder.build_diagram(diagram, style=args.style)
+    fmt = args.format or _detect_format(args.out)
 
     doc = models.Document(elements=obj["elements"], app_state=obj["appState"],
                           files=obj["files"], source=obj["source"])
@@ -213,9 +215,12 @@ def cmd_new(args) -> int:
         print(validator.format_issues(issues), file=sys.stderr)
         return 1
 
-    backup = writer.write_document(args.out, obj["elements"], obj["appState"],
-                                   files=obj["files"], source=obj["source"],
-                                   backup_file=not args.no_backup)
+    if fmt == "excalidraw" and not str(args.out).lower().endswith(
+            (".excalidraw", ".excalidraw.json")):
+        print("提示：--format excalidraw 通常应输出到 .excalidraw 文件",
+              file=sys.stderr)
+    backup = _write_geometry(args.out, obj, fmt=fmt,
+                             backup_file=not args.no_backup)
     suffix = f"（备份：{backup}）" if backup else ""
     print(f"已写入 {args.out}{suffix}")
     for i in validator.format_issues(issues).splitlines():
@@ -223,9 +228,38 @@ def cmd_new(args) -> int:
     return 0
 
 
+def _detect_format(path: str) -> str:
+    """按扩展名判断绘图格式：.excalidraw / .excalidraw.json -> 标准 JSON。"""
+    return ("excalidraw"
+            if str(path).lower().endswith((".excalidraw", ".excalidraw.json"))
+            else "md")
+
+
 def _read_doc(path: str) -> models.Document:
     with open(path, encoding="utf-8") as f:
-        return adapters.parse_md(f.read(), path=path)
+        text = f.read()
+    if _detect_format(path) == "excalidraw":
+        return adapters.parse_excalidraw(text, path=path)
+    return adapters.parse_md(text, path=path)
+
+
+def _write_geometry(path: str, obj: dict, *, fmt: str | None = None,
+                    include_frontmatter: str | None = None,
+                    embedded_files: dict[str, str] | None = None,
+                    text_order: list[str] | None = None,
+                    backup_file: bool = True) -> str:
+    """按指定格式（缺省按扩展名）写标准 .excalidraw 或 Obsidian .excalidraw.md。"""
+    if fmt is None:
+        fmt = _detect_format(path)
+    if fmt == "excalidraw":
+        return writer.write_excalidraw(
+            path, obj["elements"], obj["appState"], files=obj["files"],
+            source=styles.STANDALONE_SOURCE, backup_file=backup_file)
+    return writer.write_document(
+        path, obj["elements"], obj["appState"], files=obj["files"],
+        source=obj["source"], frontmatter=include_frontmatter,
+        embedded_files=embedded_files, text_order=text_order,
+        backup_file=backup_file)
 
 
 def cmd_get(args) -> int:
@@ -275,12 +309,22 @@ def cmd_patch(args) -> int:
         return 1
 
     out = args.out or args.path
-    backup = writer.write_document(out, obj["elements"], obj["appState"],
-                                   files=obj["files"], source=obj["source"],
-                                   frontmatter=doc.frontmatter,
-                                   embedded_files=doc.embedded_files,
-                                   text_order=[eid for _, eid in doc.text_blocks],
-                                   backup_file=not args.no_backup)
+    low_out = str(args.out).lower() if args.out else ""
+    if low_out.endswith((".excalidraw", ".excalidraw.json")):
+        out_fmt = "excalidraw"
+    elif low_out.endswith((".excalidraw.md", ".md")):
+        out_fmt = "md"
+    else:
+        out_fmt = _detect_format(args.path)
+    if out_fmt == "excalidraw" and doc.embedded_files:
+        print("提示：输入文件包含 Obsidian Embedded Files，标准 .excalidraw "
+              "不会自动把 Vault 图片嵌入 files", file=sys.stderr)
+    backup = _write_geometry(
+        out, obj, fmt=out_fmt,
+        include_frontmatter=doc.frontmatter,
+        embedded_files=doc.embedded_files,
+        text_order=[eid for _, eid in doc.text_blocks],
+        backup_file=not args.no_backup)
     print("变更统计（按元素 id）：")
     print(diff.format_diff(diff.diff_elements(doc.elements, obj["elements"])))
     suffix = f"（备份：{backup}）" if backup else ""
@@ -299,18 +343,25 @@ def build_parser() -> argparse.ArgumentParser:
                      help="使用内置样板：flow（流程图，默认）、er（实体关系图）、er-groups（按域分组的 ER 图）或 chen（经典 Chen 概念图）")
     src.add_argument("--spec", help="spec JSON 文件路径")
     src.add_argument("--spec-inline", help="内联 spec JSON 字符串")
-    pn.add_argument("-o", "--out", required=True, help="输出 .excalidraw.md 路径")
+    pn.add_argument("-o", "--out", required=True,
+                    help="输出路径（.excalidraw.md 或标准 .excalidraw）")
+    pn.add_argument("--format", choices=("md", "excalidraw"), default=None,
+                    help="输出格式：md（Obsidian .excalidraw.md，默认）或 "
+                         "excalidraw（标准 JSON，可脱离 Obsidian 打开）；"
+                         "缺省按 -o 扩展名推断")
     pn.add_argument("--style", type=_style_arg, metavar="NAME",
                     help="样式预设：clean / er / chen / hand / mono / night（别名 default/print/erd/database/sketch/grayscale/dark）")
     pn.add_argument("--no-backup", action="store_true", help="覆盖时不备份")
     pn.set_defaults(func=cmd_new)
 
     pg = sub.add_parser("get", help="读取并概览绘图")
-    pg.add_argument("--path", required=True)
+    pg.add_argument("--path", required=True,
+                    help="绘图路径（.excalidraw.md 或 .excalidraw）")
     pg.set_defaults(func=cmd_get)
 
     pv = sub.add_parser("validate", help="校验绘图结构与引用")
-    pv.add_argument("--path", required=True)
+    pv.add_argument("--path", required=True,
+                    help="绘图路径（.excalidraw.md 或 .excalidraw）")
     pv.set_defaults(func=cmd_validate)
 
     pd = sub.add_parser("diff", help="比较两个绘图的元素差异")
@@ -322,8 +373,10 @@ def build_parser() -> argparse.ArgumentParser:
     psrc = pp.add_mutually_exclusive_group(required=True)
     psrc.add_argument("--spec", help="spec JSON 文件路径")
     psrc.add_argument("--spec-inline", help="内联 spec JSON 字符串")
-    pp.add_argument("--path", required=True, help="现有 .excalidraw.md 路径")
-    pp.add_argument("-o", "--out", help="输出路径（缺省原地回写）")
+    pp.add_argument("--path", required=True,
+                    help="现有绘图路径（.excalidraw.md 或标准 .excalidraw）")
+    pp.add_argument("-o", "--out",
+                    help="输出路径（缺省原地回写；用另一种扩展名可转换格式）")
     pp.add_argument("--relayout", action="store_true",
                     help="按 spec 重新计算全部坐标（缺省保留现有位置/尺寸/箭头）")
     pp.add_argument("--style", type=_style_arg, metavar="NAME",

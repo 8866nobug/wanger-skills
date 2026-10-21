@@ -43,6 +43,20 @@ tags: [excalidraw]
 | `appState` | 画布/工具状态（主题、背景、当前样式、scroll/zoom 等） |
 | `files` | 内嵌资源（图片等），键为 fileId，值为 base64；**插件把图片存为 Vault 文件时此处为空**，映射见 `## Embedded Files` |
 
+### 2.1 标准 `.excalidraw`（脱离 Obsidian）
+
+标准 Excalidraw 文件就是上面这个顶层 JSON，**不需要** Markdown 容器、`## Text Elements` 或 `## Embedded Files`：
+
+```json
+{"type":"excalidraw","version":2,"source":"https://excalidraw.com",
+ "elements":[...],"appState":{...},"files":{}}
+```
+
+- 引擎：`adapters.parse_excalidraw()` / `serialize_excalidraw()`；
+- CLI：`new --format excalidraw`，或按 `-o` 的 `.excalidraw` 扩展名推断；
+- `get` / `validate` / `diff` / `patch` 按扩展名自动识别；
+- 标准格式的图片放在 `files`（fileId → base64）；Obsidian 的 Vault 图片映射不会自动转换，含图片时建议保留 `.excalidraw.md`。
+
 ## 3. 压缩算法：LZ-String `compressToBase64`
 
 `compressed-json` 代码块内容 = LZ-String 库的 `compressToBase64(JSON字符串)`：

@@ -50,6 +50,27 @@ def write_replace(path: str, content: str, *, backup_file: bool = True) -> str:
     return backup_path
 
 
+def write_excalidraw(path: str, doc_or_elements, app_state=None, *,
+                     files=None, source=None,
+                     backup_file: bool = True) -> str:
+    """把 Document（或 elements + app_state）写成标准 ``.excalidraw`` JSON。
+
+    与 ``write_document`` 一样：目标已存在时先备份，使用原子写入。
+    """
+    from . import models
+    if isinstance(doc_or_elements, models.Document):
+        doc = doc_or_elements
+        text = adapters.serialize_excalidraw(
+            doc.elements, doc.app_state, files=doc.files, source=doc.source)
+    else:
+        text = adapters.serialize_excalidraw(
+            doc_or_elements, app_state, files=files, source=source)
+    if os.path.exists(path):
+        return write_replace(path, text, backup_file=backup_file)
+    write_new(path, text)
+    return ""
+
+
 def write_document(path: str, doc_or_elements, app_state=None, *,
                    files=None, source=None, frontmatter=None,
                    embedded_files=None, text_order=None,

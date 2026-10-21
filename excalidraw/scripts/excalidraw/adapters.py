@@ -340,6 +340,45 @@ def parse_md(text: str, path: str | None = None) -> models.Document:
     )
 
 
+def parse_excalidraw(text: str, path: str | None = None) -> models.Document:
+    """解析标准 Excalidraw JSON（``.excalidraw``）为 Document。
+
+    这是与 Obsidian 插件容器无关的纯 JSON 格式：顶层为
+    ``{type, version, source, elements, appState, files}``。
+    """
+    obj = json_loads(text)
+    if not isinstance(obj, dict):
+        raise ValueError("标准 .excalidraw 文件必须是 JSON 对象")
+    elements = obj.get("elements")
+    if not isinstance(elements, list):
+        raise ValueError("标准 .excalidraw 文件缺少 elements 数组")
+    app_state = obj.get("appState")
+    files = obj.get("files")
+    return models.Document(
+        elements=elements,
+        app_state=app_state if isinstance(app_state, dict) else {},
+        files=files if isinstance(files, dict) else {},
+        source=obj.get("source") or "",
+        raw_json=text,
+        path=path,
+    )
+
+
+def serialize_excalidraw(elements: list[dict], app_state: dict, *,
+                         files: dict | None = None,
+                         source: str | None = None) -> str:
+    """序列化为标准 Excalidraw JSON（``.excalidraw``）。"""
+    obj = {
+        "type": "excalidraw",
+        "version": 2,
+        "source": source or styles.STANDALONE_SOURCE,
+        "elements": elements,
+        "appState": app_state or {},
+        "files": files or {},
+    }
+    return json_dumps(obj) + "\n"
+
+
 def serialize_md(elements: list[dict], app_state: dict, *,
                  files: dict | None = None, source: str | None = None,
                  frontmatter: str | None = None,

@@ -6,7 +6,7 @@ My personal collection of AI skills for Claude Code. 每个子目录是一个独
 
 | Skill | 说明 | 文档 |
 |---|---|---|
-| `excalidraw` | 用自然语言生成、校验和增量修改 Obsidian Excalidraw 图表。 | [README](excalidraw/README.md) |
+| `excalidraw` | 用自然语言生成、校验和增量修改 Obsidian / 标准 Excalidraw 图表。 | [README](excalidraw/README.md) |
 
 ## 使用
 

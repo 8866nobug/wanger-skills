@@ -32,11 +32,22 @@ python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py <子命令> ...
 
 | 子命令 | 用途 |
 |---|---|
-| `new` | 根据 spec 生成新绘图（`--spec-inline '<json>'` 或 `--spec <file>` 或 `--sample [flow\|er\|er-groups\|chen]`），`-o` 输出路径；`--style clean\|er\|chen\|hand\|mono\|night` 选样式 |
-| `get` | 读取并概览绘图（元素数/类型分布/source + 校验结果） |
-| `validate` | 校验结构与引用一致性（退出码非 0 表示有 error） |
-| `diff` | 比较两个绘图的元素差异（added/removed/updated） |
-| `patch` | 按 spec 增量修改现有绘图（声明式对账：复用 id、删除消失元素、保留手绘、**默认保留现有位置/尺寸/箭头/颜色字体**），`-o` 缺省原地回写（自动备份）；`--relayout` 强制重排，`--style` 强制换成指定预设 |
+| `new` | 根据 spec 生成新绘图（`--spec-inline '<json>'` 或 `--spec <file>` 或 `--sample [flow\|er\|er-groups\|chen]`），`-o` 输出路径；`--format md\|excalidraw` 选输出格式（缺省按扩展名）；`--style clean\|er\|chen\|hand\|mono\|night` 选样式 |
+| `get` | 读取并概览绘图（自动识别 `.excalidraw.md` / `.excalidraw`） |
+| `validate` | 校验结构与引用一致性（自动识别两种格式；退出码非 0 表示有 error） |
+| `diff` | 比较两个绘图的元素差异（自动识别两种格式） |
+| `patch` | 按 spec 增量修改现有绘图（自动识别输入格式；声明式对账：复用 id、删除消失元素、保留手绘、**默认保留现有位置/尺寸/箭头/颜色字体**），`-o` 缺省原地回写（自动备份）；`--relayout` 强制重排，`--style` 强制换成指定预设 |
+
+### 标准 `.excalidraw`（脱离 Obsidian）
+
+`new` 默认输出 Obsidian 的 `.excalidraw.md`；加 `--format excalidraw` 或把 `-o` 写成 `.excalidraw` 即可输出标准 Excalidraw JSON：
+
+```bash
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new \
+  --spec spec.json --format excalidraw -o diagram.excalidraw
+```
+
+`get` / `validate` / `diff` / `patch` 按扩展名自动识别格式。`patch` 的输出格式默认跟随输入，用 `-o` 指定另一种扩展名即可在 `.excalidraw.md` 与 `.excalidraw` 之间转换。标准格式可直接用 excalidraw.com、桌面版或 VS Code Excalidraw 扩展打开；从 Markdown 转换时 `## Embedded Files` 的 Vault 图片不会自动嵌入 `files`。
 
 ### new 的 spec 格式
 
@@ -287,7 +298,7 @@ python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py patch --relayout ..
 - patch 新增 group 时按成员现有位置包框；若成员原本分散，框会很大，建议同时用 `--relayout` 让组内成员重新成块。
 - 经典 Chen 概念图按设计不显示任何属性；`entity.fields` 会被忽略。暂不支持弱实体、多值/复合属性、关系属性、全/部分参与等扩展记法，也不从外键自动推断联系。实体和联系名称要求中文，联系必须有 `edge.label`。跨域联系的菱形不属于任一分组，移动某个域时它不会跟随，重新 patch 会按实体新位置重算；连线交叉只做启发式规避和 warning 提示。
 - `patch` 默认保留现有坐标；若在 Obsidian 外直接改文件移动了形状（未联动箭头），箭头端点可能滞后，用 `--relayout` 可修正。
-- 图片：插件默认把图片存为 Vault 独立文件，绘图 JSON 的 `files` 为空，映射在顶部 `## Embedded Files` 段（`fileId: [[文件]]`）。引擎已解析并原样回写该段，`patch` 不会丢图；**引擎不生成图片元素**，只保留已有图片。若手动增删 `Embedded Files`，需要同步 `image` 元素的 `fileId`（= 图片内容 SHA-1）。
+- 图片：插件默认把图片存为 Vault 独立文件，绘图 JSON 的 `files` 为空，映射在顶部 `## Embedded Files` 段（`fileId: [[文件]]`）。引擎已解析并原样回写该段，`patch` 不会丢图；**引擎不生成图片元素**，只保留已有图片。若手动增删 `Embedded Files`，需要同步 `image` 元素的 `fileId`（= 图片内容 SHA-1）。从 `.excalidraw.md` 转标准 `.excalidraw` 时，Vault 图片不会自动读入并 base64 嵌入 `files`；含图片的图建议保留 Markdown 格式。
 - 文本宽高为估算（无字体度量库），插件打开后以实际渲染为准。
 - lz-string 已覆盖 UTF-16 代理对（emoji 等 astral 字符）；lone surrogate 等非法输入未定义。
 

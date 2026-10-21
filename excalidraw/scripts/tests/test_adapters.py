@@ -85,5 +85,38 @@ class TestMarkdownContainer(unittest.TestCase):
         self.assertNotIn("## Embedded Files", text)
 
 
+class TestPlainExcalidraw(unittest.TestCase):
+    def _sample_obj(self):
+        d = models.Diagram(nodes=[
+            models.Node("terminator", "开始", sem_id="start"),
+            models.Node("process", "处理", sem_id="p1"),
+            models.Node("terminator", "结束", sem_id="end"),
+        ], edges=[models.Edge("start", "p1"), models.Edge("p1", "end")])
+        return builder.build_diagram(d)
+
+    def test_serialize_parse_roundtrip(self):
+        obj = self._sample_obj()
+        text = adapters.serialize_excalidraw(
+            obj["elements"], obj["appState"], files=obj["files"],
+            source=styles.STANDALONE_SOURCE)
+        data = json.loads(text)
+        self.assertEqual(data["type"], "excalidraw")
+        self.assertEqual(data["version"], 2)
+        self.assertEqual(data["source"], styles.STANDALONE_SOURCE)
+        self.assertIn("elements", data)
+        doc = adapters.parse_excalidraw(text)
+        self.assertEqual(doc.elements, obj["elements"])
+        self.assertEqual(doc.app_state, obj["appState"])
+        self.assertEqual(doc.files, obj["files"])
+
+    def test_parse_rejects_missing_elements(self):
+        with self.assertRaises(ValueError):
+            adapters.parse_excalidraw('{"type": "excalidraw"}')
+
+    def test_parse_rejects_non_object(self):
+        with self.assertRaises(ValueError):
+            adapters.parse_excalidraw('[]')
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,11 +1,12 @@
 # Excalidraw Skill for Obsidian
 
-> 让 Claude Code 用**可校验、可复现、可增量修改**的方式生成 Obsidian Excalidraw 图表。
+> 让 Claude Code 用**可校验、可复现、可增量修改**的方式生成 Excalidraw 图表：
+> 默认输出 Obsidian 的 `.excalidraw.md`，也可以输出标准 `.excalidraw`，脱离 Obsidian 打开。
 > 纯 Python 标准库 · 6 套样式 · 流程图 / UML / ER / 分组 / 经典 Chen 概念图 · 幂等 patch · 自动备份
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](#安装)
-[![Tests](https://img.shields.io/badge/tests-137%20passing-brightgreen)](scripts/tests)
+[![Tests](https://img.shields.io/badge/tests-144%20passing-brightgreen)](scripts/tests)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 <p align="center">
@@ -19,21 +20,22 @@
 - **Claude** 负责理解需求、阅读笔记、设计图表的语义（节点、连线、分支、注释），输出一份 JSON **spec**。
 - **Python 引擎** 负责布局、原生元素装配、ID/index 管理、LZ-String 编解码、结构校验、备份与安全写入。
 
-因此生成的 `.excalidraw.md` 可以直接被 Obsidian Excalidraw 插件打开；后续修改走 `patch`，按稳定的 `sem_id` 做声明式对账，不会重复生成元素，也不会抹掉你手动拖过的位置。
+因此生成的 `.excalidraw.md` 可以直接被 Obsidian Excalidraw 插件打开；需要脱离 Obsidian 时，用 `--format excalidraw` 输出标准 `.excalidraw` JSON。后续修改走 `patch`，按稳定的 `sem_id` 做声明式对账，不会重复生成元素，也不会抹掉你手动拖过的位置。
 
 ### 能力一览
 
 - **5 种图表模式**：流程图、UML 类图、ER 表卡片（鸦爪）、业务域分组、经典 Chen 概念 ER 图。
+- **两种输出格式**：Obsidian `.excalidraw.md`（默认）与标准 `.excalidraw`（可脱离 Obsidian）。
 - **6 套样式预设**：`clean` / `er` / `chen` / `hand` / `mono` / `night`，一份 spec 一键换肤。
 - **确定性布局**：流程分层 + barycenter、ER 连通分量 BFS、分组成块、Chen 菱形/标签冲突避让。
 - **幂等增量修改**：`patch` 复用 id、保留手拖坐标与外观，重复执行 no-op。
-- **可校验、可备份、原子写入**：纯 Python 标准库，无第三方依赖；137 个单测。
+- **可校验、可备份、原子写入**：纯 Python 标准库，无第三方依赖；144 个单测。
 
 ---
 
 ## 样例画廊
 
-所有样例都由本仓库的引擎生成，图片可在 `docs/images/` 中查看原图，spec 与可直接打开的 `.excalidraw.md` 在 `examples/`。
+所有样例都由本仓库的引擎生成，图片可在 `docs/images/` 中查看原图，spec 在 `examples/`。每个样例同时提供 Obsidian 的 `.excalidraw.md` 和标准 `.excalidraw` 两种可打开文件。
 
 ### 1. 流程图（Flowchart）
 
@@ -46,7 +48,8 @@
 </p>
 
 - Spec：[`examples/flow.json`](examples/flow.json)
-- 可打开文件：[`examples/flow.excalidraw.md`](examples/flow.excalidraw.md)
+- Obsidian 格式：[`examples/flow.excalidraw.md`](examples/flow.excalidraw.md)
+- 标准格式：[`examples/flow.excalidraw`](examples/flow.excalidraw)
 - 展示：开始/结束、处理、判断、并行扇出/扇入、异常分支、分支标签、右侧说明栏。
 
 ### 2. UML 类图（Class Diagram）
@@ -139,7 +142,7 @@
 - **格式兼容**：`.excalidraw.md` 的 LZ-String `compressToBase64`、256 字符换行、`## Text Elements`、`## Embedded Files`、`appState` 都按真实插件文件实现并做过往返校验。
 - **安全写入**：写入前校验；覆盖时自动 `.bak-<时间戳>` 备份；临时文件 + 原子重命名。
 - **布局与避让**：分层流程布局、ER BFS 分列、Chen 菱形/标签冲突避让、组容器成块布局。
-- **可测试**：137 个 `unittest` 用例覆盖编解码、布局、样式、ER/Chen、分组、patch 与校验。
+- **可测试**：144 个 `unittest` 用例覆盖编解码、布局、样式、ER/Chen、分组、patch 与校验。
 
 ---
 
@@ -184,8 +187,9 @@ excalidraw/
 ### 环境要求
 
 - **Python 3.10+**（开发与测试使用 3.13）；**不需要 `pip install` 任何依赖**。
-- 查看/编辑图表需要 Obsidian + [Excalidraw 插件](https://github.com/zsviczian/obsidian-excalidraw-plugin)（引擎按 2.29.0 的真实文件格式实现）。
-- 生成图表本身不要求安装 Obsidian；只要求能读写 `.excalidraw.md` 文件。
+- 查看/编辑 `.excalidraw.md` 需要 Obsidian + [Excalidraw 插件](https://github.com/zsviczian/obsidian-excalidraw-plugin)（引擎按 2.29.0 的真实文件格式实现）。
+- 查看/编辑标准 `.excalidraw` 不需要 Obsidian，可用 excalidraw.com、Excalidraw 桌面版或 VS Code Excalidraw 扩展。
+- 生成图表本身不要求安装 Obsidian；只要求能读写目标文件。
 
 验证安装：
 
@@ -212,6 +216,10 @@ python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new --sample er-gro
 
 # 经典 Chen 概念图
 python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new --sample chen -o chen.excalidraw.md
+
+# 标准 Excalidraw JSON（脱离 Obsidian）
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new \
+  --sample er --format excalidraw -o er.excalidraw
 ```
 
 ### 2. 用自定义 spec
@@ -285,6 +293,41 @@ python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py patch \
 - 默认保留你在 Obsidian 里手动拖过的坐标、改过的颜色/字体；
 - 复用未变化元素的 id，重复执行不产生重复元素；
 - 缺省原地回写，自动生成 `.bak-<时间戳>` 备份。
+
+---
+
+## 标准 `.excalidraw`（脱离 Obsidian）
+
+`new` 默认写 Obsidian 的 `.excalidraw.md`。加 `--format excalidraw`，或直接把 `-o` 写成 `.excalidraw`，就会输出标准 Excalidraw JSON：
+
+```bash
+# 显式指定格式
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new \
+  --spec spec.json --format excalidraw -o diagram.excalidraw
+
+# 省略 --format，按输出扩展名推断
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py new \
+  --spec spec.json -o diagram.excalidraw
+```
+
+`get` / `validate` / `diff` / `patch` 都会按扩展名自动识别两种格式。`patch` 的输出格式默认跟随输入；用 `-o` 指定另一种扩展名即可转换：
+
+```bash
+# .excalidraw.md -> .excalidraw
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py patch \
+  --path diagram.excalidraw.md --spec spec-v2.json -o diagram.excalidraw
+
+# .excalidraw -> .excalidraw.md
+python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py patch \
+  --path diagram.excalidraw --spec spec-v2.json -o diagram.excalidraw.md
+```
+
+说明：
+
+- 标准 `.excalidraw` 的顶层结构为 `{type, version, source, elements, appState, files}`，可直接用 excalidraw.com、Excalidraw 桌面版或 VS Code Excalidraw 扩展打开。
+- 引擎生成的元素是标准 Excalidraw schema；插件专属的 `appState` 字段会被标准客户端忽略。
+- 从 `.excalidraw.md` 转标准格式时，`## Text Elements` 与 frontmatter 会被丢弃（文本已经保存在 `elements` 中）。
+- `## Embedded Files` 中的 Vault 图片不会自动嵌入标准 `files`；含图片的图建议继续使用 `.excalidraw.md`。
 
 ---
 
@@ -363,11 +406,11 @@ python ~/.claude/skills/excalidraw/scripts/excalidraw_cli.py patch \
 
 | 命令 | 用途 | 关键参数 |
 |---|---|---|
-| `new` | 根据 spec 生成新绘图 | `--sample [flow\|er\|er-groups\|chen]`、`--spec`、`--spec-inline`、`-o`、`--style` |
-| `get` | 读取并概览绘图 | `--path` |
-| `validate` | 校验结构 / ID / 引用 | `--path`；有 error 时退出码非 0 |
-| `diff` | 比较两份绘图的元素差异 | `--old`、`--new` |
-| `patch` | 按 spec 增量修改现有绘图 | `--path`、`--spec` / `--spec-inline`、`-o`、`--relayout`、`--style` |
+| `new` | 根据 spec 生成新绘图 | `--sample [flow\|er\|er-groups\|chen]`、`--spec`、`--spec-inline`、`-o`、`--format [md\|excalidraw]`、`--style` |
+| `get` | 读取并概览绘图（自动识别两种格式） | `--path` |
+| `validate` | 校验结构 / ID / 引用（自动识别两种格式） | `--path`；有 error 时退出码非 0 |
+| `diff` | 比较两份绘图的元素差异（自动识别两种格式） | `--old`、`--new` |
+| `patch` | 按 spec 增量修改现有绘图（自动识别输入格式） | `--path`、`--spec` / `--spec-inline`、`-o`、`--relayout`、`--style` |
 
 引擎入口是 `scripts/excalidraw_cli.py`，可以在任意目录执行。所有写入都会先校验；`new` 覆盖已存在文件、`patch` 回写时默认备份。
 
@@ -380,16 +423,21 @@ flowchart LR
     A["自然语言 / 笔记"] --> B["Diagram IR<br/>JSON spec"]
     B --> C["layout.py<br/>分层 / ER / 分组 / Chen 布局"]
     C --> D["builder.py<br/>原生元素装配 + semId"]
-    D --> E["adapters.py<br/>LZ-String + Markdown 容器"]
-    E --> F[".excalidraw.md"]
-    F --> G["Obsidian<br/>Excalidraw 插件"]
-    G --> H["patch<br/>按 semId 对账"]
+    D --> E1["adapters.py<br/>LZ-String + Markdown 容器"]
+    E1 --> F1[".excalidraw.md"]
+    F1 --> G1["Obsidian<br/>Excalidraw 插件"]
+    D --> E2["adapters.py<br/>标准 JSON"]
+    E2 --> F2[".excalidraw"]
+    F2 --> G2["excalidraw.com / 桌面版<br/>VS Code 扩展"]
+    G1 --> H["patch<br/>按 semId 对账"]
+    G2 --> H
     H --> D
 ```
 
 ### 文件格式兼容
 
 - `.excalidraw.md` 是 Markdown 容器，绘图数据在 `compressed-json` 代码块中；
+- `.excalidraw` 是标准 Excalidraw JSON：`type / version / source / elements / appState / files`，不依赖 Obsidian；
 - 压缩算法为 LZ-String 的 `compressToBase64`（桥接 UTF-16 code unit，支持 emoji / astral 字符）；
 - base64 按 **256 字符**一段、段间空一行，与插件保存格式一致；
 - 保留 `## Text Elements`、`## Embedded Files`、`appState`（滚动、缩放、主题）；
@@ -431,7 +479,7 @@ excalidraw/
 │   │   ├── diff.py              # 元素级差异
 │   │   └── cli.py               # CLI 实现
 │   ├── excalidraw_cli.py        # 独立启动器
-│   └── tests/                   # 137 个 unittest 用例
+│   └── tests/                   # 144 个 unittest 用例
 ├── examples/                    # 本文档使用的 spec 与可打开文件
 └── docs/
     ├── images/                  # 样例预览（SVG + PNG）
@@ -449,11 +497,11 @@ excalidraw/
 python docs/render_examples.py
 ```
 
-- 读取 `examples/*.json`，生成 `.excalidraw.md`、`docs/images/*.svg`；
+- 读取 `examples/*.json`，生成 `.excalidraw.md`、`.excalidraw`、`docs/images/*.svg`；
 - 如果本机有 Chrome / Edge，会用无头模式生成 2x PNG；没有则跳过 PNG，已提交的 PNG 仍可直接使用；
 - 只想生成 SVG：`python docs/render_examples.py --no-png`。
 
-样例 spec 也可以直接作为模板修改：
+每个样例会生成 `<name>.excalidraw.md`（Obsidian）与 `<name>.excalidraw`（标准格式）两份文件。样例 spec 也可以直接作为模板修改：
 
 | 文件 | 内容 |
 |---|---|
@@ -478,9 +526,10 @@ cd excalidraw/scripts
 python -m unittest discover -s tests -t .
 ```
 
-当前 **137 个用例**全部通过；仓库根目录的 GitHub Actions（`.github/workflows/tests.yml`）会在 Python 3.10 / 3.12 / 3.13 上运行同一套测试。覆盖：
+当前 **144 个用例**全部通过；仓库根目录的 GitHub Actions（`.github/workflows/tests.yml`）会在 Python 3.10 / 3.12 / 3.13 上运行同一套测试。覆盖：
 
 - LZ-String 编解码、`.excalidraw.md` 往返、Embedded Files；
+- 标准 `.excalidraw` 读写、与 `.excalidraw.md` 互转、CLI 格式推断；
 - flow / ER / grouped / Chen 布局与元素几何；
 - 6 套样式预设与别名；
 - ER 鸦爪装饰、UML 关系箭头、Chen 基数与防重叠；
@@ -498,6 +547,8 @@ python -m unittest discover -s tests -t .
 - `group` 只支持一层；跨组边不参与组内排序，可能穿过组背景框。
 - 经典 Chen 模式暂不支持弱实体、多值/复合属性、关系属性、全/部分参与等扩展记法，也不从外键自动推断联系。
 - 引擎保留已有图片元素与 `Embedded Files`，但**不生成图片元素**。
+- 从 `.excalidraw.md` 转标准 `.excalidraw` 时，`## Text Elements` 与 frontmatter 会被丢弃（文本在 elements 中）；`## Embedded Files` 的 Vault 图片不会自动嵌入标准 `files`，含图片的图建议保留 Markdown 格式。
+- 标准 Excalidraw 会忽略引擎写入的插件专属 `appState` 字段；这不影响打开，但不同客户端保存后字段可能被重写。
 - README 中的预览图由仓库内的简化 SVG 渲染器生成，不等同于插件渲染；手绘抖动、字体和文本换行以 Obsidian 为准。
 
 ---

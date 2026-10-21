@@ -42,6 +42,17 @@ class TestWriter(unittest.TestCase):
             doc = adapters.parse_md(f.read())
         self.assertEqual(doc.elements, obj["elements"])
 
+    def test_write_excalidraw_roundtrip(self):
+        p = os.path.join(self.dir, "a.excalidraw")
+        obj = self._sample_text()
+        writer.write_excalidraw(p, obj["elements"], obj["appState"],
+                                files=obj["files"])
+        from excalidraw import adapters
+        with open(p, encoding="utf-8") as f:
+            doc = adapters.parse_excalidraw(f.read())
+        self.assertEqual(doc.elements, obj["elements"])
+        self.assertEqual(doc.app_state, obj["appState"])
+
 
 if __name__ == "__main__":
     unittest.main()

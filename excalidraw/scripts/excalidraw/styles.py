@@ -398,6 +398,8 @@ def get_preset(name: str | None = None) -> dict:
 DEFAULT_SOURCE = (
     "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.29.0"
 )
+# 标准 .excalidraw（脱离 Obsidian）的来源标记
+STANDALONE_SOURCE = "https://excalidraw.com"
 
 # 新建文件的默认 appState（基于观测到的模板，重置滚动与缩放）
 DEFAULT_APP_STATE: dict = {

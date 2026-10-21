@@ -1,4 +1,4 @@
-"""生成 README 用的示例 .excalidraw.md / SVG / PNG。
+"""生成 README 用的示例 .excalidraw.md / .excalidraw / SVG / PNG。
 
 用法：
     python docs/render_examples.py            # 生成 SVG，并尝试生成 PNG
@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from excalidraw import builder, cli, models, validator, writer  # noqa: E402
+from excalidraw import builder, cli, models, styles, validator, writer  # noqa: E402
 import preview_render  # noqa: E402
 
 EXAMPLES = ROOT / "examples"
@@ -55,10 +55,17 @@ def build_obj(spec: dict, style: str | None = None):
     return obj, doc
 
 
-def write_excalidraw(path: Path, obj: dict) -> None:
+def write_md(path: Path, obj: dict) -> None:
     writer.write_document(
         str(path), obj["elements"], obj["appState"], files=obj["files"],
         source=obj["source"], backup_file=False)
+    print(f"  wrote {path.relative_to(ROOT)}")
+
+
+def write_plain(path: Path, obj: dict) -> None:
+    writer.write_excalidraw(
+        str(path), obj["elements"], obj["appState"], files=obj["files"],
+        source=styles.STANDALONE_SOURCE, backup_file=False)
     print(f"  wrote {path.relative_to(ROOT)}")
 
 
@@ -148,7 +155,8 @@ def main() -> int:
         print(f"[{out_name}]")
         spec = json.loads((EXAMPLES / spec_name).read_text(encoding="utf-8"))
         obj, doc = build_obj(spec)
-        write_excalidraw(EXAMPLES / f"{out_name}.excalidraw.md", obj)
+        write_md(EXAMPLES / f"{out_name}.excalidraw.md", obj)
+        write_plain(EXAMPLES / f"{out_name}.excalidraw", obj)
         svg_text, w, h = preview_render.render_svg(doc)
         svg = IMAGES / f"{out_name}.svg"
         svg.write_text(svg_text, encoding="utf-8")
