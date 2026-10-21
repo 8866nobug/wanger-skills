@@ -1,0 +1,184 @@
+{
+  "style": "clean",
+  "title": "电商订单审核与履约流程",
+  "nodes": [
+    {
+      "kind": "terminator",
+      "text": "开始",
+      "sem_id": "start"
+    },
+    {
+      "kind": "process",
+      "text": "接收订单\n校验商品与价格",
+      "sem_id": "receive"
+    },
+    {
+      "kind": "process",
+      "text": "校验收货地址\n与库存可用性",
+      "sem_id": "validate"
+    },
+    {
+      "kind": "decision",
+      "text": "基础校验通过？",
+      "sem_id": "d1"
+    },
+    {
+      "kind": "process",
+      "text": "锁定库存",
+      "sem_id": "reserve"
+    },
+    {
+      "kind": "process",
+      "text": "生成履约单",
+      "sem_id": "fulfill"
+    },
+    {
+      "kind": "process",
+      "text": "风控检查",
+      "sem_id": "fraud"
+    },
+    {
+      "kind": "process",
+      "text": "计算税费",
+      "sem_id": "tax"
+    },
+    {
+      "kind": "decision",
+      "text": "子任务成功？",
+      "sem_id": "d2"
+    },
+    {
+      "kind": "process",
+      "text": "取消订单\n原路退款",
+      "sem_id": "cancel"
+    },
+    {
+      "kind": "process",
+      "text": "发起支付",
+      "sem_id": "pay"
+    },
+    {
+      "kind": "process",
+      "text": "安排仓库发货",
+      "sem_id": "ship"
+    },
+    {
+      "kind": "decision",
+      "text": "发货成功？",
+      "sem_id": "d3"
+    },
+    {
+      "kind": "process",
+      "text": "记录异常\n进入补偿队列",
+      "sem_id": "compensate"
+    },
+    {
+      "kind": "process",
+      "text": "通知客户\n更新订单状态",
+      "sem_id": "notify"
+    },
+    {
+      "kind": "terminator",
+      "text": "结束",
+      "sem_id": "end"
+    },
+    {
+      "kind": "note",
+      "text": "流程说明\n\n• 基础校验失败：取消订单并原路退款\n• 库存/履约/风控/税费并行执行\n• 任一子任务失败：释放库存并取消\n• 发货失败：进入补偿队列，最多重试 3 次\n• 所有分支最终都会通知客户\n\n图例：椭圆=开始/结束，矩形=处理，菱形=判断",
+      "sem_id": "note"
+    }
+  ],
+  "edges": [
+    {
+      "src": "start",
+      "dst": "receive"
+    },
+    {
+      "src": "receive",
+      "dst": "validate"
+    },
+    {
+      "src": "validate",
+      "dst": "d1"
+    },
+    {
+      "src": "d1",
+      "dst": "cancel",
+      "label": "否"
+    },
+    {
+      "src": "d1",
+      "dst": "reserve",
+      "label": "是"
+    },
+    {
+      "src": "d1",
+      "dst": "fulfill"
+    },
+    {
+      "src": "d1",
+      "dst": "fraud"
+    },
+    {
+      "src": "d1",
+      "dst": "tax"
+    },
+    {
+      "src": "reserve",
+      "dst": "d2"
+    },
+    {
+      "src": "fulfill",
+      "dst": "d2"
+    },
+    {
+      "src": "fraud",
+      "dst": "d2"
+    },
+    {
+      "src": "tax",
+      "dst": "d2"
+    },
+    {
+      "src": "d2",
+      "dst": "cancel",
+      "label": "否"
+    },
+    {
+      "src": "d2",
+      "dst": "pay",
+      "label": "是"
+    },
+    {
+      "src": "pay",
+      "dst": "ship"
+    },
+    {
+      "src": "ship",
+      "dst": "d3"
+    },
+    {
+      "src": "d3",
+      "dst": "notify",
+      "label": "是"
+    },
+    {
+      "src": "d3",
+      "dst": "compensate",
+      "label": "否"
+    },
+    {
+      "src": "compensate",
+      "dst": "notify",
+      "label": "补偿完成"
+    },
+    {
+      "src": "notify",
+      "dst": "end"
+    },
+    {
+      "src": "cancel",
+      "dst": "end"
+    }
+  ]
+}

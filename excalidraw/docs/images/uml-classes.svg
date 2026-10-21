@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2079" height="1076" viewBox="0 0 2079 1076">
+<rect x="0" y="0" width="2079" height="1076" fill="#ffffff"/>
+<rect x="571.5" y="119.0" width="271.0" height="268.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="707.0" y="145.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">Order</text>
+<polyline points="575.5,160.0 838.5,160.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="583.5" y="190.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- id: UUID</text><text x="583.5" y="215.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- userId: UUID</text><text x="583.5" y="240.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- status: OrderStatus</text><text x="583.5" y="265.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- total: Money</text>
+<polyline points="575.5,280.0 838.5,280.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="583.5" y="310.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ place(): void</text><text x="583.5" y="335.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ pay(): Payment</text><text x="583.5" y="360.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ cancel(): void</text>
+<rect x="125.0" y="477.0" width="249.0" height="218.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="249.5" y="503.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">OrderItem</text>
+<polyline points="129.0,518.0 370.0,518.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="137.0" y="548.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- id: UUID</text><text x="137.0" y="573.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- productId: UUID</text><text x="137.0" y="598.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- quantity: int</text><text x="137.0" y="623.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- unitPrice: Money</text>
+<polyline points="129.0,638.0 370.0,638.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="137.0" y="668.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ subtotal(): Money</text>
+<rect x="48.0" y="835.0" width="403.0" height="193.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="249.5" y="861.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">Product</text>
+<polyline points="52.0,876.0 447.0,876.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="60.0" y="906.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- id: UUID</text><text x="60.0" y="931.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- sku: String</text><text x="60.0" y="956.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- price: Money</text>
+<polyline points="52.0,971.0 447.0,971.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="60.0" y="1001.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ changePrice(price: Money): void</text>
+<rect x="674.0" y="477.0" width="249.0" height="243.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="798.5" y="503.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">Payment</text>
+<polyline points="678.0,518.0 919.0,518.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="686.0" y="548.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- id: UUID</text><text x="686.0" y="573.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- orderId: UUID</text><text x="686.0" y="598.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- amount: Money</text><text x="686.0" y="623.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- status: PayStatus</text>
+<polyline points="678.0,638.0 919.0,638.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="686.0" y="668.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ capture(): void</text><text x="686.0" y="693.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ refund(): void</text>
+<rect x="1113.0" y="477.0" width="469.0" height="168.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="1347.5" y="503.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">«interface»</text><text x="1347.5" y="528.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">OrderRepository</text>
+<polyline points="1117.0,543.0 1578.0,543.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="1125.0" y="573.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ save(order: Order): void</text><text x="1125.0" y="598.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ findById(id: UUID): Order</text><text x="1125.0" y="623.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ findByUser(userId: UUID): List&lt;Order&gt;</text>
+<text x="1702.0" y="137.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">图例</text><text x="1702.0" y="162.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve"></text><text x="1702.0" y="187.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">实线箭头 = 关联</text><text x="1702.0" y="212.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">虚线箭头 = 依赖</text><text x="1702.0" y="237.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">空心三角 = 继承 / 实现</text><text x="1702.0" y="262.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">实心菱形 = 组合（整体端）</text><text x="1702.0" y="287.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">空心菱形 = 聚合（整体端）</text><text x="1702.0" y="312.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve"></text><text x="1702.0" y="337.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">Order 为聚合根：</text><text x="1702.0" y="362.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">OrderItem 与 Payment 的生命周期</text><text x="1702.0" y="387.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">由 Order 统一维护。</text>
+<rect x="1071.0" y="119.0" width="370.0" height="168.0" rx="0" fill="#f3f0ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="1256.0" y="145.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">JpaOrderRepository</text>
+<polyline points="1075.0,160.0 1437.0,160.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="1083.0" y="190.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">- entityManager: EntityManager</text>
+<polyline points="1075.0,205.0 1437.0,205.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="1083.0" y="235.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ save(order: Order): void</text><text x="1083.0" y="260.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">+ findById(id: UUID): Order</text>
+<polyline points="565.5,356.0 380.0,491.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="565.5,356.0 562.1,368.3 549.3,367.8 552.7,355.4" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1.4"/>
+
+<text x="461.0" y="412.1" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">1..*</text>
+<polyline points="249.5,701.0 249.5,829.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="249.5,829.0 242.5,815.0 256.5,815.0" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="229.5" y="769.7" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">引用</text>
+<polyline points="744.1,393.0 764.7,471.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="744.1,393.0 754.4,400.6 749.2,412.3 738.9,404.7" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.4"/>
+
+<text x="735.1" y="441.8" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">0..*</text>
+<polyline points="848.5,321.0 1160.3,471.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7"/>
+
+<polygon points="1160.3,471.0 1144.7,471.2 1150.8,458.6" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="1279.0,293.0 1324.5,471.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="1324.5,471.0 1312.3,457.6 1328.8,453.4" fill="#ffffff" stroke="#1e1e1e" stroke-width="1.5"/>
+<text x="815.0" y="73.8" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="28.0" text-anchor="middle" xml:space="preserve">电商订单领域 UML 类图</text>
+</svg>

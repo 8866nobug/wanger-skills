@@ -1,0 +1,71 @@
+{
+  "style": "clean",
+  "title": "电商订单领域 UML 类图",
+  "nodes": [
+    {
+      "kind": "uml_class",
+      "text": "Order\n---\n- id: UUID\n- userId: UUID\n- status: OrderStatus\n- total: Money\n---\n+ place(): void\n+ pay(): Payment\n+ cancel(): void",
+      "sem_id": "order"
+    },
+    {
+      "kind": "uml_class",
+      "text": "OrderItem\n---\n- id: UUID\n- productId: UUID\n- quantity: int\n- unitPrice: Money\n---\n+ subtotal(): Money",
+      "sem_id": "order_item"
+    },
+    {
+      "kind": "uml_class",
+      "text": "Product\n---\n- id: UUID\n- sku: String\n- price: Money\n---\n+ changePrice(price: Money): void",
+      "sem_id": "product"
+    },
+    {
+      "kind": "uml_class",
+      "text": "Payment\n---\n- id: UUID\n- orderId: UUID\n- amount: Money\n- status: PayStatus\n---\n+ capture(): void\n+ refund(): void",
+      "sem_id": "payment"
+    },
+    {
+      "kind": "uml_class",
+      "text": "«interface»\nOrderRepository\n---\n+ save(order: Order): void\n+ findById(id: UUID): Order\n+ findByUser(userId: UUID): List<Order>",
+      "sem_id": "order_repo"
+    },
+    {
+      "kind": "note",
+      "text": "图例\n\n实线箭头 = 关联\n虚线箭头 = 依赖\n空心三角 = 继承 / 实现\n实心菱形 = 组合（整体端）\n空心菱形 = 聚合（整体端）\n\nOrder 为聚合根：\nOrderItem 与 Payment 的生命周期\n由 Order 统一维护。",
+      "sem_id": "note"
+    },
+    {
+      "kind": "uml_class",
+      "text": "JpaOrderRepository\n---\n- entityManager: EntityManager\n---\n+ save(order: Order): void\n+ findById(id: UUID): Order",
+      "sem_id": "jpa_order_repo"
+    }
+  ],
+  "edges": [
+    {
+      "src": "order",
+      "dst": "order_item",
+      "rel": "compose",
+      "label": "1..*"
+    },
+    {
+      "src": "order_item",
+      "dst": "product",
+      "rel": "assoc",
+      "label": "引用"
+    },
+    {
+      "src": "order",
+      "dst": "payment",
+      "rel": "aggregate",
+      "label": "0..*"
+    },
+    {
+      "src": "order",
+      "dst": "order_repo",
+      "rel": "depend"
+    },
+    {
+      "src": "jpa_order_repo",
+      "dst": "order_repo",
+      "rel": "inherit"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1424" height="563" viewBox="0 0 1424 563">
+<rect width="1424" height="563" fill="#f5f7fa"/>
+<rect x="36.0" y="36.0" width="320.0" height="445.2" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="1"/>
+<svg x="36.0" y="36.0" width="320.0" height="445.2" viewBox="0 0 616 857">
+<rect x="0" y="0" width="616" height="857" fill="#ffffff"/>
+<ellipse cx="308.0" cy="149.0" rx="80.0" ry="30.0" fill="#ebfbee" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="154.9" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">开始</text>
+<polygon points="308.0,329.0 428.0,389.0 308.0,449.0 188.0,389.0" fill="#fff9db" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="394.9" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">校验通过？</text>
+<rect x="48.0" y="539.0" width="200.0" height="60.0" rx="0" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="148.0" y="574.9" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">生成订单</text>
+<rect x="368.0" y="539.0" width="200.0" height="60.0" rx="0" fill="#e7f5ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="468.0" y="574.9" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">返回错误</text>
+<ellipse cx="308.0" cy="779.0" rx="80.0" ry="30.0" fill="#ebfbee" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="784.9" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">结束</text>
+<polyline points="308.0,185.0 308.0,323.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="308.0,323.0 301.0,309.0 315.0,309.0" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="249.3,455.0 180.0,533.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="180.0,533.0 184.1,517.9 194.5,527.2" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="199.7" y="485.4" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">是</text>
+<polyline points="366.7,455.0 436.0,533.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="436.0,533.0 421.5,527.2 431.9,517.9" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="386.4" y="512.0" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">否</text>
+<polyline points="175.4,605.0 280.6,743.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="280.6,743.0 266.5,736.1 277.7,727.6" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="440.6,605.0 335.4,743.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="335.4,743.0 338.3,727.6 349.5,736.1" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="308.0" y="73.8" fill="#1e1e1e" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="28.0" text-anchor="middle" xml:space="preserve">订单校验流程</text>
+</svg>
+<text x="196.0" y="509.2" text-anchor="middle" fill="#343a40" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">clean · 默认印刷体</text>
+<rect x="380.0" y="36.0" width="320.0" height="445.2" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="1"/>
+<svg x="380.0" y="36.0" width="320.0" height="445.2" viewBox="0 0 616 857">
+<rect x="0" y="0" width="616" height="857" fill="#ffffff"/>
+<ellipse cx="308.0" cy="149.0" rx="80.0" ry="30.0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="154.9" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="20.0" text-anchor="middle" xml:space="preserve">开始</text>
+<polygon points="308.0,329.0 428.0,389.0 308.0,449.0 188.0,389.0" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="394.9" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="20.0" text-anchor="middle" xml:space="preserve">校验通过？</text>
+<rect x="48.0" y="539.0" width="200.0" height="60.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="148.0" y="574.9" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="20.0" text-anchor="middle" xml:space="preserve">生成订单</text>
+<rect x="368.0" y="539.0" width="200.0" height="60.0" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="468.0" y="574.9" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="20.0" text-anchor="middle" xml:space="preserve">返回错误</text>
+<ellipse cx="308.0" cy="779.0" rx="80.0" ry="30.0" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.0"/>
+<text x="308.0" y="784.9" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="20.0" text-anchor="middle" xml:space="preserve">结束</text>
+<polyline points="308.0,185.0 308.0,323.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="308.0,323.0 301.0,309.0 315.0,309.0" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="249.3,455.0 180.0,533.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="180.0,533.0 184.1,517.9 194.5,527.2" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="199.7" y="485.4" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="16.0" text-anchor="middle" xml:space="preserve">是</text>
+<polyline points="366.7,455.0 436.0,533.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="436.0,533.0 421.5,527.2 431.9,517.9" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="386.4" y="512.0" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="16.0" text-anchor="middle" xml:space="preserve">否</text>
+<polyline points="175.4,605.0 280.6,743.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="280.6,743.0 266.5,736.1 277.7,727.6" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="440.6,605.0 335.4,743.0" fill="none" stroke="#1e1e1e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="335.4,743.0 338.3,727.6 349.5,736.1" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="308.0" y="73.8" fill="#1e1e1e" font-family="'Comic Sans MS', 'Segoe Print', cursive" font-size="28.0" text-anchor="middle" xml:space="preserve">订单校验流程</text>
+</svg>
+<text x="540.0" y="509.2" text-anchor="middle" fill="#343a40" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">hand · 手绘白板</text>
+<rect x="724.0" y="36.0" width="320.0" height="445.2" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="1"/>
+<svg x="724.0" y="36.0" width="320.0" height="445.2" viewBox="0 0 616 857">
+<rect x="0" y="0" width="616" height="857" fill="#ffffff"/>
+<ellipse cx="308.0" cy="149.0" rx="80.0" ry="30.0" fill="#f8f9fa" stroke="#212529" stroke-width="2.0"/>
+<text x="308.0" y="154.9" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">开始</text>
+<polygon points="308.0,329.0 428.0,389.0 308.0,449.0 188.0,389.0" fill="#e9ecef" stroke="#212529" stroke-width="2.0"/>
+<text x="308.0" y="394.9" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">校验通过？</text>
+<rect x="48.0" y="539.0" width="200.0" height="60.0" rx="0" fill="#f1f3f5" stroke="#212529" stroke-width="2.0"/>
+<text x="148.0" y="574.9" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">生成订单</text>
+<rect x="368.0" y="539.0" width="200.0" height="60.0" rx="0" fill="#f1f3f5" stroke="#212529" stroke-width="2.0"/>
+<text x="468.0" y="574.9" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">返回错误</text>
+<ellipse cx="308.0" cy="779.0" rx="80.0" ry="30.0" fill="#f8f9fa" stroke="#212529" stroke-width="2.0"/>
+<text x="308.0" y="784.9" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">结束</text>
+<polyline points="308.0,185.0 308.0,323.0" fill="none" stroke="#212529" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="308.0,323.0 301.0,309.0 315.0,309.0" fill="#212529" stroke="#212529" stroke-width="1"/>
+<polyline points="249.3,455.0 180.0,533.0" fill="none" stroke="#212529" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="180.0,533.0 184.1,517.9 194.5,527.2" fill="#212529" stroke="#212529" stroke-width="1"/>
+<text x="199.7" y="485.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">是</text>
+<polyline points="366.7,455.0 436.0,533.0" fill="none" stroke="#212529" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="436.0,533.0 421.5,527.2 431.9,517.9" fill="#212529" stroke="#212529" stroke-width="1"/>
+<text x="386.4" y="512.0" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">否</text>
+<polyline points="175.4,605.0 280.6,743.0" fill="none" stroke="#212529" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="280.6,743.0 266.5,736.1 277.7,727.6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<polyline points="440.6,605.0 335.4,743.0" fill="none" stroke="#212529" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="335.4,743.0 338.3,727.6 349.5,736.1" fill="#212529" stroke="#212529" stroke-width="1"/>
+<text x="308.0" y="73.8" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="28.0" text-anchor="middle" xml:space="preserve">订单校验流程</text>
+</svg>
+<text x="884.0" y="509.2" text-anchor="middle" fill="#343a40" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">mono · 灰度打印</text>
+<rect x="1068.0" y="36.0" width="320.0" height="445.2" rx="14" fill="#141414" stroke="#ced4da" stroke-width="1"/>
+<svg x="1068.0" y="36.0" width="320.0" height="445.2" viewBox="0 0 616 857">
+<rect x="0" y="0" width="616" height="857" fill="#141414"/>
+<ellipse cx="308.0" cy="149.0" rx="80.0" ry="30.0" fill="#2b8a3e" stroke="#f8f9fa" stroke-width="2.0"/>
+<text x="308.0" y="154.9" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">开始</text>
+<polygon points="308.0,329.0 428.0,389.0 308.0,449.0 188.0,389.0" fill="#e8590c" stroke="#f8f9fa" stroke-width="2.0"/>
+<text x="308.0" y="394.9" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">校验通过？</text>
+<rect x="48.0" y="539.0" width="200.0" height="60.0" rx="10" fill="#1971c2" stroke="#f8f9fa" stroke-width="2.0"/>
+<text x="148.0" y="574.9" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">生成订单</text>
+<rect x="368.0" y="539.0" width="200.0" height="60.0" rx="10" fill="#1971c2" stroke="#f8f9fa" stroke-width="2.0"/>
+<text x="468.0" y="574.9" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">返回错误</text>
+<ellipse cx="308.0" cy="779.0" rx="80.0" ry="30.0" fill="#2b8a3e" stroke="#f8f9fa" stroke-width="2.0"/>
+<text x="308.0" y="784.9" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="middle" xml:space="preserve">结束</text>
+<polyline points="308.0,185.0 308.0,323.0" fill="none" stroke="#f8f9fa" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="308.0,323.0 301.0,309.0 315.0,309.0" fill="#f8f9fa" stroke="#f8f9fa" stroke-width="1"/>
+<polyline points="249.3,455.0 180.0,533.0" fill="none" stroke="#f8f9fa" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="180.0,533.0 184.1,517.9 194.5,527.2" fill="#f8f9fa" stroke="#f8f9fa" stroke-width="1"/>
+<text x="199.7" y="485.4" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">是</text>
+<polyline points="366.7,455.0 436.0,533.0" fill="none" stroke="#f8f9fa" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="436.0,533.0 421.5,527.2 431.9,517.9" fill="#f8f9fa" stroke="#f8f9fa" stroke-width="1"/>
+<text x="386.4" y="512.0" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="16.0" text-anchor="middle" xml:space="preserve">否</text>
+<polyline points="175.4,605.0 280.6,743.0" fill="none" stroke="#f8f9fa" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="280.6,743.0 266.5,736.1 277.7,727.6" fill="#f8f9fa" stroke="#f8f9fa" stroke-width="1"/>
+<polyline points="440.6,605.0 335.4,743.0" fill="none" stroke="#f8f9fa" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+<polygon points="335.4,743.0 338.3,727.6 349.5,736.1" fill="#f8f9fa" stroke="#f8f9fa" stroke-width="1"/>
+<text x="308.0" y="73.8" fill="#ffffff" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="28.0" text-anchor="middle" xml:space="preserve">订单校验流程</text>
+</svg>
+<text x="1228.0" y="509.2" text-anchor="middle" fill="#343a40" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600">night · 深色演示</text>
+</svg>

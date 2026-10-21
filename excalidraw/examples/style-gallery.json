@@ -1,0 +1,54 @@
+{
+  "title": "订单校验流程",
+  "nodes": [
+    {
+      "kind": "terminator",
+      "text": "开始",
+      "sem_id": "start"
+    },
+    {
+      "kind": "decision",
+      "text": "校验通过？",
+      "sem_id": "d1"
+    },
+    {
+      "kind": "process",
+      "text": "生成订单",
+      "sem_id": "ok"
+    },
+    {
+      "kind": "process",
+      "text": "返回错误",
+      "sem_id": "fail"
+    },
+    {
+      "kind": "terminator",
+      "text": "结束",
+      "sem_id": "end"
+    }
+  ],
+  "edges": [
+    {
+      "src": "start",
+      "dst": "d1"
+    },
+    {
+      "src": "d1",
+      "dst": "ok",
+      "label": "是"
+    },
+    {
+      "src": "d1",
+      "dst": "fail",
+      "label": "否"
+    },
+    {
+      "src": "ok",
+      "dst": "end"
+    },
+    {
+      "src": "fail",
+      "dst": "end"
+    }
+  ]
+}

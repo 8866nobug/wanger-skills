@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1736" height="690" viewBox="0 0 1736 690">
+<rect x="0" y="0" width="1736" height="690" fill="#ffffff"/>
+<rect x="48.0" y="349.5" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="118.0" y="386.1" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">用户</text>
+<rect x="411.6" y="580.0" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="481.6" y="616.6" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">收货地址</text>
+<rect x="411.6" y="119.0" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="481.6" y="155.6" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">订单</text>
+<rect x="775.2" y="234.2" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="845.2" y="270.8" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">支付记录</text>
+<rect x="775.2" y="464.8" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="845.2" y="501.3" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">商品</text>
+<rect x="1138.8" y="349.5" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="1208.8" y="386.1" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">商品分类</text>
+<rect x="411.6" y="349.5" width="140.0" height="62.5" rx="0" fill="#e7f5ff" stroke="#868e96" stroke-width="1.0"/>
+<text x="481.6" y="386.1" fill="#1971c2" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="18.0" text-anchor="middle" xml:space="preserve">购物车</text>
+<text x="1398.8" y="137.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">概念图说明</text><text x="1398.8" y="162.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve"></text><text x="1398.8" y="187.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">矩形 = 业务实体</text><text x="1398.8" y="212.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">菱形 = 业务联系</text><text x="1398.8" y="237.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">1 / N / M / 0..1 = 联系基数</text><text x="1398.8" y="262.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve"></text><text x="1398.8" y="287.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">本图只表达业务概念，</text><text x="1398.8" y="312.4" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="20.0" text-anchor="start" xml:space="preserve">不包含字段、类型等物理设计。</text>
+<polygon points="299.8,220.5 364.8,265.5 299.8,310.5 234.8,265.5" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="299.8" y="269.6" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">下单</text>
+<polyline points="176.8,343.5 228.8,310.5" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="370.8,220.5 422.8,187.5" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="179.6" y="322.2" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">1</text>
+<text x="420.0" y="217.1" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<polygon points="299.8,451.0 364.8,496.0 299.8,541.0 234.8,496.0" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="299.8" y="500.1" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">收货</text>
+<polyline points="176.8,418.0 228.8,451.0" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="370.8,541.0 422.8,574.0" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="197.0" y="435.0" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">1</text>
+<text x="402.6" y="565.3" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<polygon points="663.4,278.1 728.4,323.1 663.4,368.1 598.4,323.1" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="663.4" y="327.3" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">包含</text>
+<polyline points="520.8,187.5 609.8,272.1" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="717.0,374.1 806.0,458.8" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="532.4" y="202.7" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<text x="783.1" y="452.1" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">M</text>
+<polygon points="663.4,162.9 728.4,207.9 663.4,252.9 598.4,207.9" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="663.4" y="212.0" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">支付</text>
+<polyline points="557.6,174.3 592.4,185.4" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="734.4,230.4 769.2,241.4" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="566.8" y="202.4" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">1</text>
+<text x="753.9" y="240.7" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<polygon points="1027.0,393.4 1092.0,438.4 1027.0,483.4 962.0,438.4" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="1027.0" y="442.5" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">归属</text>
+<polyline points="921.2,471.9 956.0,460.9" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="1098.0,415.9 1132.8,404.8" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="936.5" y="471.2" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<text x="1123.6" y="432.9" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">1</text>
+<polygon points="299.8,335.8 364.8,380.8 299.8,425.8 234.8,380.8" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="299.8" y="384.9" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">属于</text>
+<polyline points="405.6,380.8 370.8,380.8" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="228.8,380.8 194.0,380.8" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="389.6" y="394.9" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<text x="210.0" y="404.9" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">1</text>
+<polygon points="663.4,393.4 728.4,438.4 663.4,483.4 598.4,438.4" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="663.4" y="442.5" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">加购</text>
+<polyline points="557.6,404.8 592.4,415.9" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="734.4,460.9 769.2,471.9" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="569.8" y="423.3" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<text x="760.0" y="452.1" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">M</text>
+<polygon points="1373.7,372.0 1438.7,417.0 1373.7,462.0 1308.7,417.0" fill="#fff3bf" stroke="#868e96" stroke-width="1.0"/>
+<text x="1373.7" y="421.2" fill="#e67700" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">上级分类</text>
+<polyline points="1284.8,397.5 1302.7,401.4" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<polyline points="1302.7,401.4 1284.8,397.5" fill="none" stroke="#868e96" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
+
+
+<text x="1284.9" y="438.5" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">0..1</text>
+<text x="1298.7" y="412.9" fill="#868e96" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="14.0" text-anchor="middle" xml:space="preserve">N</text>
+<text x="743.3" y="73.8" fill="#212529" font-family="Arial, 'Microsoft YaHei', 'PingFang SC', sans-serif" font-size="28.0" text-anchor="middle" xml:space="preserve">电商订单业务概念 ER 图</text>
+</svg>

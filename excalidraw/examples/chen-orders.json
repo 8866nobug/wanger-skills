@@ -1,0 +1,112 @@
+{
+  "style": "chen",
+  "notation": "chen",
+  "title": "电商订单业务概念 ER 图",
+  "nodes": [
+    {
+      "kind": "entity",
+      "text": "user",
+      "label": "用户",
+      "sem_id": "user"
+    },
+    {
+      "kind": "entity",
+      "text": "address",
+      "label": "收货地址",
+      "sem_id": "address"
+    },
+    {
+      "kind": "entity",
+      "text": "order",
+      "label": "订单",
+      "sem_id": "order"
+    },
+    {
+      "kind": "entity",
+      "text": "payment",
+      "label": "支付记录",
+      "sem_id": "payment"
+    },
+    {
+      "kind": "entity",
+      "text": "product",
+      "label": "商品",
+      "sem_id": "product"
+    },
+    {
+      "kind": "entity",
+      "text": "category",
+      "label": "商品分类",
+      "sem_id": "category"
+    },
+    {
+      "kind": "entity",
+      "text": "cart",
+      "label": "购物车",
+      "sem_id": "cart"
+    },
+    {
+      "kind": "note",
+      "text": "概念图说明\n\n矩形 = 业务实体\n菱形 = 业务联系\n1 / N / M / 0..1 = 联系基数\n\n本图只表达业务概念，\n不包含字段、类型等物理设计。",
+      "sem_id": "note"
+    }
+  ],
+  "edges": [
+    {
+      "src": "user",
+      "dst": "order",
+      "cardinality": "1:N",
+      "label": "下单",
+      "sem_id": "user_order"
+    },
+    {
+      "src": "user",
+      "dst": "address",
+      "cardinality": "1:N",
+      "label": "收货",
+      "sem_id": "user_address"
+    },
+    {
+      "src": "order",
+      "dst": "product",
+      "cardinality": "N:M",
+      "label": "包含",
+      "sem_id": "order_product"
+    },
+    {
+      "src": "order",
+      "dst": "payment",
+      "cardinality": "1:N",
+      "label": "支付",
+      "sem_id": "order_payment"
+    },
+    {
+      "src": "product",
+      "dst": "category",
+      "cardinality": "N:1",
+      "label": "归属",
+      "sem_id": "product_category"
+    },
+    {
+      "src": "cart",
+      "dst": "user",
+      "cardinality": "N:1",
+      "label": "属于",
+      "sem_id": "cart_user"
+    },
+    {
+      "src": "cart",
+      "dst": "product",
+      "cardinality": "N:M",
+      "label": "加购",
+      "sem_id": "cart_product"
+    },
+    {
+      "src": "category",
+      "dst": "category",
+      "cardinality": "0..1:N",
+      "label": "上级分类",
+      "sem_id": "category_parent"
+    }
+  ]
+}

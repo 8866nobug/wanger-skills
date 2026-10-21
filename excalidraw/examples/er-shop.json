@@ -1,0 +1,257 @@
+{
+  "style": "er",
+  "title": "电商订单数据库 ER 图",
+  "nodes": [
+    {
+      "kind": "entity",
+      "text": "account",
+      "sem_id": "account",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)"
+        },
+        {
+          "name": "plan",
+          "type": "varchar(32)",
+          "default": "'free'"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "user",
+      "sem_id": "user",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "account_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "email",
+          "type": "varchar(255)",
+          "unique": true
+        },
+        {
+          "name": "name",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "category",
+      "sem_id": "category",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "parent_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "product",
+      "sem_id": "product",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "category_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "sku",
+          "type": "varchar(64)",
+          "unique": true
+        },
+        {
+          "name": "name",
+          "type": "varchar(160)"
+        },
+        {
+          "name": "price",
+          "type": "numeric(10,2)"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "order",
+      "sem_id": "order",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "user_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "status",
+          "type": "varchar(32)",
+          "default": "'pending'"
+        },
+        {
+          "name": "total",
+          "type": "numeric(12,2)"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "order_item",
+      "sem_id": "order_item",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "order_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "product_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "quantity",
+          "type": "int"
+        },
+        {
+          "name": "unit_price",
+          "type": "numeric(10,2)"
+        }
+      ]
+    },
+    {
+      "kind": "entity",
+      "text": "payment",
+      "sem_id": "payment",
+      "fields": [
+        {
+          "name": "id",
+          "type": "bigint",
+          "pk": true
+        },
+        {
+          "name": "order_id",
+          "type": "bigint",
+          "fk": true
+        },
+        {
+          "name": "amount",
+          "type": "numeric(12,2)"
+        },
+        {
+          "name": "method",
+          "type": "varchar(32)"
+        },
+        {
+          "name": "paid_at",
+          "type": "timestamp"
+        }
+      ]
+    },
+    {
+      "kind": "note",
+      "text": "图例\nPK = 主键　FK = 外键　UQ = 唯一\n1:N = 一对多　0..1 = 可选单条",
+      "sem_id": "legend"
+    }
+  ],
+  "edges": [
+    {
+      "src": "account",
+      "dst": "user",
+      "cardinality": "1:N",
+      "label": "包含",
+      "sem_id": "account_user"
+    },
+    {
+      "src": "user",
+      "dst": "order",
+      "cardinality": "1:N",
+      "label": "下单",
+      "sem_id": "user_order"
+    },
+    {
+      "src": "order",
+      "dst": "order_item",
+      "cardinality": "1:N",
+      "label": "包含",
+      "sem_id": "order_item_edge"
+    },
+    {
+      "src": "product",
+      "dst": "order_item",
+      "cardinality": "1:N",
+      "label": "关联",
+      "sem_id": "product_item"
+    },
+    {
+      "src": "order",
+      "dst": "payment",
+      "cardinality": "1:N",
+      "label": "支付",
+      "sem_id": "order_payment"
+    },
+    {
+      "src": "category",
+      "dst": "category",
+      "cardinality": "0..1:N",
+      "label": "归属",
+      "sem_id": "category_parent"
+    },
+    {
+      "src": "category",
+      "dst": "product",
+      "cardinality": "1:N",
+      "label": "归类",
+      "sem_id": "category_product"
+    }
+  ]
+}
